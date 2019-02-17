@@ -1,4 +1,4 @@
-<h2>Please Ente Property Information</h2>
+<h2>Please Enter Property Information</h2>
 <form class="example-container">
       
         <mat-form-field>
@@ -10,11 +10,27 @@
         </mat-form-field>
 
         <mat-form-field>
+                <input matInput placeholder="Contat No" name="contactNoInput" type="text" [(ngModel)]="contactNo">
+        </mat-form-field>
+
+        <mat-form-field>
           <textarea matInput placeholder="Description" (change)="updateDescription($event.target.value)"></textarea>
         </mat-form-field>
      
+        <h4 class="mat-h4 mat-subheading-1">Are you an agent?</h4>
+        <mat-form-field>
+                        <select matNativeControl required (change)="onIsAgentChange($event)">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                
+                        </select>
+        </mat-form-field>
   
+        <h4 class="mat-h4 mat-subheading-1">Upload an image</h4>
+       
         <input type="file"  (change)="onFileChange($event)"/>
+       
+       
    
         
 </form>

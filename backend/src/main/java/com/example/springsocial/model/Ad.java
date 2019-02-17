@@ -29,6 +29,31 @@ public class Ad {
     @Column(name = "price")
     private String price;
 
+    @Column(name = "contactNo")
+    private String contactNo;
+
+
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getIsAgent() {
+        return isAgent;
+    }
+
+    public void setIsAgent(String isAgent) {
+        this.isAgent = isAgent;
+    }
+
+    @Column(name = "isAgent")
+    private String isAgent;
+
+
+
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
     private List<Image> images;
 

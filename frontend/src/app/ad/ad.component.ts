@@ -22,7 +22,7 @@ export class AdItemsComponent implements OnInit {
              
                 adArray.push({"description": resArray[i].description,
                 "location": resArray[i].location,"id":resArray[i].id,"price": resArray[i].price,
-               "url" : 'ad/img/' + resArray[i].id});
+               "url" : 'ad/img/' + resArray[i].id, "contactNo" : resArray[i].contactNo, "isAgent": resArray[i].isAgent});
             }
 
             this.ads = adArray;

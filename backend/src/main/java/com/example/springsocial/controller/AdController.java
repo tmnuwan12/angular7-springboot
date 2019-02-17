@@ -33,7 +33,9 @@ public class AdController {
     public String createAd(@RequestParam("image") MultipartFile file,
                            @RequestParam("description") String description,
                            @RequestParam("price") String price,
-    @RequestParam("location") String location) throws JsonProcessingException {
+                            @RequestParam("location") String location,
+                           @RequestParam("contactNo") String contactNo,
+                           @RequestParam("isAgent") String isAgent) throws JsonProcessingException {
 
 
         TestController.Response res = new TestController.Response();
@@ -46,6 +48,8 @@ public class AdController {
             ad.setDescription(description);
             ad.setPrice(price);
             ad.setLocation(location);
+            ad.setContactNo(contactNo);
+            ad.setIsAgent(isAgent);
             if(ad != null){
                 Image img = new Image();
                 img.setImg(bytes);
@@ -89,6 +93,8 @@ public class AdController {
             res.setId(ad.getId().toString());
             res.setLocation(ad.getLocation());
             res.setPrice(ad.getPrice());
+            res.setContactNo(ad.getContactNo());
+            res.setIsAgent(ad.getIsAgent());
             response.add(res);
         }
 
@@ -116,6 +122,25 @@ public class AdController {
         private String location;
         private String id;
         private String price;
+        private String contactNo;
+        private String isAgent;
+
+        public String getContactNo() {
+            return contactNo;
+        }
+
+        public void setContactNo(String contactNo) {
+            this.contactNo = contactNo;
+        }
+
+        public String getIsAgent() {
+            return isAgent;
+        }
+
+        public void setIsAgent(String isAgent) {
+            this.isAgent = isAgent;
+        }
+
 
 
         public String getDescription() {

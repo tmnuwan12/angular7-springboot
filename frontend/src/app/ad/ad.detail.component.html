@@ -1,0 +1,47 @@
+<div *ngIf="selection">
+ 
+        <h2>Ad Details</h2>
+        
+        <table>
+                <tr>
+    
+                    <td><h3 class="mat-h2 mat-title">Id </h3></td>
+                    <td><h3 class="mat-h3 mat-subheading-2">{{selection.id}}</h3></td>
+                </tr>
+    
+                <tr>
+                        <td ><h3 class="mat-h2 mat-title">Description </h3></td>
+                        <td ><h3 class="mat-h3 mat-subheading-2">{{selection.description}}</h3></td>
+                </tr>
+    
+                <tr> 
+                        <td ><h3 class="mat-h2 mat-title">Price</h3></td>
+                        <td ><h3 class="mat-h3 mat-subheading-2">{{selection.price}}</h3></td>
+                </tr>
+                <tr> 
+                        <td ><h3 class="mat-h2 mat-title">Location </h3></td>
+                        <td ><h3 class="mat-h3 mat-subheading-2">{{selection.location}}</h3></td>
+                </tr>
+                <tr> 
+                        <td > <h3 class="mat-h2 mat-title">Contact No </h3></td>
+                        <td ><h3 class="mat-h3 mat-subheading-2">{{selection.contactNo}}</h3></td>
+                </tr>
+    
+                <tr> 
+                        <td ><h3 class="mat-h2 mat-title">Is Agent </h3></td>
+                        <td > <h3 class="mat-h3 mat-subheading-2">{{selection.isAgent}}</h3></td>
+                </tr>
+                  
+            </table>
+        
+      
+          <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>
+              <img src={{selection.url}} alt="image">
+            </mat-grid-tile>
+          </mat-grid-list>
+      
+  
+
+
+      </div>

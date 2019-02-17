@@ -13,7 +13,14 @@ export class AdManagerComponent implements OnInit {
   price: string = null;
   location: string = null;
   selectedFile = null;
+  isAgent:string;
   serverMsg = '';
+  agentSelections = [
+    {value: 'Yes', viewValue: 'Yes'},
+    {value: 'No', viewValue: 'No'}
+  ];
+
+  contactNo:string = null;
 
   constructor(private api: ApiService, private global: Global){
 
@@ -36,6 +43,8 @@ export class AdManagerComponent implements OnInit {
     fd.append('price', this.price)
     fd.append('image', this.selectedFile, this.selectedFile.name);
     fd.append('location', this.location);
+    fd.append('contactNo', this.contactNo);
+    fd.append('isAgent', this.isAgent);
 
    this.api.post('/ad/upload', this.global.jwt, fd).subscribe(a => {
      console.log('a -' + a);
@@ -56,6 +65,11 @@ export class AdManagerComponent implements OnInit {
     this.description = value;
   }
 
+  onIsAgentChange(event){
+    this.isAgent = event.target.value;
+  }
+
+ 
 
 
 

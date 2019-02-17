@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  title = 'realestate';
+  title = 'Property Search';
   ngOnInit() {
 
    this.route.queryParams

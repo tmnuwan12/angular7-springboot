@@ -5,6 +5,8 @@ export class Ad{
    location: string;
    price: string;
    url: string;
+   contactNo: string;
+   isAgent: string;
 
 
 

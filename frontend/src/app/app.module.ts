@@ -11,6 +11,7 @@ import { FormsModule }   from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { MaterialModule } from './material/material';
+import { AdDetailComponent } from './ad/ad.detail.component';
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -21,10 +22,12 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     SearchComponent,
     AdItemsComponent,
-    AdManagerComponent
+    AdManagerComponent,
+    AdDetailComponent
   ],
   imports: [
     RouterModule.forRoot(
