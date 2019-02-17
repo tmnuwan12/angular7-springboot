@@ -1,0 +1,26 @@
+<h2>Please Ente Property Information</h2>
+<form class="example-container">
+      
+        <mat-form-field>
+                <input matInput placeholder="Location" name="locationInput" [(ngModel)]="location">
+        </mat-form-field>
+
+        <mat-form-field>
+                <input matInput placeholder="Price" name="priceInput" type="text" [(ngModel)]="price">
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Description" (change)="updateDescription($event.target.value)"></textarea>
+        </mat-form-field>
+     
+  
+        <input type="file"  (change)="onFileChange($event)"/>
+   
+        
+</form>
+
+
+
+<p>{{serverMsg}}</p>
+<!-- <button (click)="save($event)">Publish</button> -->
+<button mat-raised-button (click)="save($event)">Publish</button>

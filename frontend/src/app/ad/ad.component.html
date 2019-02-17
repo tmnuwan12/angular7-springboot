@@ -1,0 +1,35 @@
+<ul class="ads">
+  <li *ngFor="let ad of ads"
+    [class.selected]="ad === selectedAd"
+    (click)="onSelect(ad)">
+    <span class="badge">{{ad.id}}</span> {{ad.description}}
+    <mat-card>Simple card</mat-card>
+  </li>
+
+ 
+</ul>
+ 
+<div *ngIf="selectedAd">
+ 
+  <h2>Ad Details</h2>
+  <div><span>id: </span>{{selectedAd.id}}</div>
+  <div>
+    <label>description:
+     <p>{{selectedAd.description}}</p>
+    </label>
+    <label>price:
+            <p>{{selectedAd.price}}</p>
+    </label>
+    <label>location:
+            <p>{{selectedAd.location}}</p>
+    </label>
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+        <img src={{selectedAd.url}} alt="image">
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+ 
+</div>

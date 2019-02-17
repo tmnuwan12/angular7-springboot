@@ -6,10 +6,10 @@ import com.example.springsocial.service.AdService;
 import com.example.springsocial.util.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,6 +18,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Thusitha Nuwan
@@ -57,6 +58,21 @@ public class AdController {
         }
 
         return JsonUtil.toJsonString(res);
+    }
+
+    @GetMapping("/ad/img/{id}") // //new annotation since 4.3
+    public ResponseEntity<byte[]> getImage(@PathVariable("id") String id){
+        Ad ad = adService.findByUuid(id);
+        //only return first image
+        byte[] data = new byte[0];
+        if(ad.getImages() != null && ad.getImages().get(0) != null){
+            data = ad.getImages().get(0).getImg();
+        }
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(data);
     }
 
 
